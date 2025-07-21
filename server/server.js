@@ -10,13 +10,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ Connect to MongoDB Atlas
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.log(err));
 
-// ✅ Signup Route
+
 app.post("/signup", async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
